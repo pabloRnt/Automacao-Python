@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Alexandre",
+    "email": "a@b.com",
+    "company": "FIAP",
+    "step": "novo",
+    "created_at": "2026-09-10"
+  },
+  {
+    "name": "Pablo",
+    "email": "IBM",
+    "company": "p@gmail.com",
+    "step": "Sem Contato",
+    "created_at": "2026-09-10"
+  },
+  {
+    "name": "Roberto",
+    "email": "Bhrama",
+    "company": "carlos@gmail.com",
+    "step": "Sem contato",
+    "created_at": "2026-09-10"
+  }
+]
