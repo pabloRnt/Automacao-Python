@@ -27,22 +27,58 @@ def list_leads():
         print("Nenhum lead ainda")
         return
 
-    print(leads) # A FAZER: Formatar lista em uma tabela
+    print(f"\n## | {"Nome":<10} | {"Email" :10} | {"Empresa":<10}")
+    print("-"*50)
+
+    for i, lead, in enumerate(leads):
+        print(f"{i:02d} | {lead["name"] :10} | {lead["email"] :10} | {lead["company"]:<10}")
+        
+def search_leads():
+
+    query = input("Buscar por: ").strip().lower()
+
+    if not query:
+        print("Consulta vazia")
+        return
+
+    # Envia a query para oo control realizar a busca no leads.json
+    leads_finded = control.read_leads_search(query)
+    print(f"\n## | {"Nome":<10} | {"Email" :10} | {"Empresa":<10}")
+    print("-"*50)
+
+    for i, lead in leads_finded:
+        print(f"{i:02d} | {lead["name"] :10} | {lead["email"] :10} | {lead["company"]:<10}")
+
+def export_leads():
+   
+    path_csv = control.export_csv()
+
+    if path_csv is None:
+       print("Não foi possível exportar os leads")
+    else:
+       print(f"Exportando para {path_csv}")
 
 def main():
-    print("\nMini CRM de Leads")
-    print("[1] - Adicionar Lead")
-    print("[2] - Listar Leads")
-    print("[0] - Sair do programa")
-
-    opt = input("Escolha sua opção: ")
 
     while True:
+
+        print("\nMini CRM de Leads")
+        print("[1] - Adicionar Lead")
+        print("[2] - Listar Leads")
+        print("[3] - Buscar(nome/email/empresa)")
+        print("[4] - Exportar CSV")
+        print("[0] - Sair do programa")
+
+        opt = input("Escolha sua opção: ")
         
         if opt =="1":
             add_lead()
         elif opt =="2":
             list_leads()
+        elif opt =="3":
+            search_leads()
+        elif opt =="4":
+            export_leads()
         elif opt =="0":
             print("Até mais...")
             break
