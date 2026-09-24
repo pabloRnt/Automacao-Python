@@ -58,6 +58,11 @@ def export_leads():
     else:
        print(f"Exportando para {path_csv}")
 
+def update_leads():
+    
+    name = input("Qual lead você quer atualizar? ")
+    control.update_lead(name)
+
 def main():
 
     while True:
@@ -67,6 +72,7 @@ def main():
         print("[2] - Listar Leads")
         print("[3] - Buscar(nome/email/empresa)")
         print("[4] - Exportar CSV")
+        print("[5] - Atualizar Leads")
         print("[0] - Sair do programa")
 
         opt = input("Escolha sua opção: ")
@@ -79,6 +85,8 @@ def main():
             search_leads()
         elif opt =="4":
             export_leads()
+        elif opt =="5":
+            update_leads()
         elif opt =="0":
             print("Até mais...")
             break
