@@ -25,3 +25,6 @@ print(pablo.notas_por_disciplina)
 
 # CALCULAR média das notas de uma disciplina
 print(pablo.calcular_media_d(dsa))
+
+# CALCULAR média geral das disciplinas
+print(pablo.calcular_media_g())

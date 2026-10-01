@@ -26,3 +26,14 @@ class Aluno:
             return 0
         
         return sum(notas) / len(notas)
+
+    def calcular_media_g(self) -> float:
+
+        medias = []
+
+        for d in self.disciplinas:
+
+            media_d = self.calcular_media_d(d)
+            medias.append(media_d)
+
+        return sum(medias) / len(medias)
